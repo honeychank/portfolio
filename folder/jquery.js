@@ -7,19 +7,20 @@ $(function() {
     if (direction === 'down') { //scroll down
         activePoint.addClass('slideIn-left');
     }
-    else{ //scroll up
-        activePoint.removeClass('slideIn-left');
-    }
-  },{offset : '80%'});
+  },{offset : '75%'});
 
   $('.about-text').waypoint(function(direction){
     var activePoint = $(this.element);
     if (direction === 'down') { //scroll down
         activePoint.addClass('slideIn-right');
     }
-    else{ //scroll up
-        activePoint.removeClass('slideIn-right');
+	},{offset : '75%'});
+
+	$('.slideIn-up').waypoint(function(direction){
+    var activePoint = $(this.element);
+    if (direction === 'down') { //scroll down
+        activePoint.addClass('slideIn-up-start');
     }
-  },{offset : '80%'});
+  },{offset : '75%'});
 
 });
