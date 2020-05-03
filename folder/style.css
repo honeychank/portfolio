@@ -48,11 +48,10 @@ body{
 .home-inner{
   /* background-image: url(../img/background.jpg);
   background-size: cover;
-  background-attachment: fixed; */
+  background-attachment: fixed; iOSでバグあり*/
   width: 100%;
   height: 35rem;
   margin: 0 auto;
-  /* z-index: -1; */
 }
 .home-wrap img{
   position: absolute;
@@ -61,15 +60,16 @@ body{
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
-  height: 7rem;
-  animation-name: eye-catch;
+	width: 70%;
+	max-width: 800px;
+  animation-name: slide-up;
   animation-duration: 2s;
 }
-@keyframes eye-catch {
+@keyframes slide-up {
   0% {
     opacity: 0;
     transform: translate(-50%,-10%);
-  }  
+  }
   100% {
     opacity: 1;
     transform: translate(-50%,-50%);
@@ -84,7 +84,7 @@ body{
   transform: translate(-50%,-50%);
   background-color: #fff;
   height: 1.5px;
-  width: 80%;
+	width: 80%;
   animation-name: under-line;
   animation-duration: 2s;
 }
@@ -92,20 +92,11 @@ body{
   0% {
     opacity: 0;
     width: 0;
-  }  
+  }
   100% {
     opacity: 1;
     width: 80%;
   }
-}
-
-.home-wrap button{
-  position: absolute;
-  top: 65%;
-  left: 50%;
-  -ms-transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
 }
 
 /* about */
@@ -122,6 +113,9 @@ body{
   margin-bottom: 2.5rem;
   border-radius: 50%;
 }
+.about-text p{
+	line-height: 1;
+}
 .slideIn-left{
   animation-name: slideIn-left;/* アニメーション名 */
   animation-duration: 2s;/* アニメーション時間 */
@@ -130,7 +124,7 @@ body{
   0% {
       opacity: 0;
       transform: translateX(-50%);
-  }  
+  }
   100% {
       opacity: 1;
       transform: translateX(0);
@@ -144,7 +138,7 @@ body{
   0% {
       opacity: 0;
       transform: translateX(30%);
-  }  
+  }
   100% {
       opacity: 1;
       transform: translateX(0);
@@ -155,12 +149,8 @@ body{
 #skills{
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
-  /* max-width: 1000px; */
   width: 100%;
   margin: 0 auto;
-  /* background-image: url("../img/background2.jpg");
-  background-size: cover;
-  background-attachment: fixed; */
   background: #77A1D3;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #E684AE, #79CBCA, #77A1D3);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #E684AE, #79CBCA, #77A1D3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -174,11 +164,14 @@ body{
 .fa-code{
   color: #e54d26;
 }
+.fa-css3{
+  color: #2163af;
+}
 .fa-bold{
   color: #563d7c;
 }
-.fa-css3{
-  color: #2163af;
+.fa-sass{
+  color: #15AABF;
 }
 .fa-js-square{
   color: #21af79;
@@ -189,9 +182,26 @@ body{
 .fa-wordpress{
   color: #555454;
 }
-.fa-code, .fa-bold, .fa-css3, .fa-js-square, .fa-php, .fa-wordpress{
+.fa-git-alt{
+	color: #2e2e2e;
+}
+.slideIn-up{
   font-size: 4rem;
-  margin: 1rem;
+	margin: 1rem;
+}
+.slideIn-up-start{
+  animation-name: slideIn-up-start;/* アニメーション名 */
+  animation-duration: 2s;/* アニメーション時間 */
+}
+@keyframes slideIn-up-start {
+  0% {
+      opacity: 0;
+      transform: translateY(50%);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
 }
 
 /* products */
@@ -204,8 +214,9 @@ body{
 }
 .card{
   padding: 1rem;
-  margin-bottom: 1rem;
-  background-color: rgba(255, 255, 255, .8);
+	background-color: rgba(255, 255, 255, .8);
+	max-width: 500px;
+	margin: 0 auto 1rem auto;
 }
 .card-body{
   color: #2e2e2e;
@@ -219,10 +230,15 @@ body{
 }
 
 /* contact */
-.formrun{
+#contact{
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
+}
+
+#contact button{
+	display: block;
+	margin: 0 auto;
 }
 
 /* social */
@@ -248,18 +264,12 @@ body{
 /* レスポンシブ */
 
 @media (max-width: 992px){
-  .home-wrap img{
-    height: 5rem;
-  }
   .card-title{
     font-size: 1.2rem;
   }
 }
 
 @media (max-width: 768px){
-  .home-wrap img{
-    height: 4.5rem;
-  }
   .home-wrap button{
     font-size: 1rem;
     top: 62.5%;
@@ -271,13 +281,13 @@ body{
   }
   .about-text{
     margin-left: 1rem;
-  }
+	}
+	#contact{
+		max-width: 600px;
+	}
 }
 
 @media (max-width: 576px){
-  .home-wrap img{
-    height: 3.2rem;
-  }
   .home-wrap button{
     font-size: 1rem;
     top: 65%;
